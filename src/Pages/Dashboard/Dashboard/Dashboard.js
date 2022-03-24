@@ -53,7 +53,11 @@ const Dashboard = (props) => {
                         <MenuIcon />
                     </IconButton>
 
-                    <Typography variant="h6" component="span">
+                    <Typography
+                        variant="h6"
+                        component="span"
+                        sx={{ fontFamily: "monospace" }}
+                    >
                         Dashboard
                     </Typography>
                 </Toolbar>

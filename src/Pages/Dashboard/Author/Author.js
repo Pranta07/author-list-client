@@ -28,10 +28,11 @@ const Author = () => {
         <>
             <Typography
                 variant="h4"
-                style={{
+                sx={{
                     fontWeight: "bold",
                     textAlign: "center",
-                    paddingBottom: 5,
+                    paddingBottom: 2,
+                    fontFamily: "monospace",
                 }}
             >
                 List of All Author
