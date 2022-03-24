@@ -1,25 +1,26 @@
-import {
-    Box,
-    Grid,
-    Typography,
-    Tooltip,
-    Divider,
-    LinearProgress,
-} from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { Box, Grid, Typography, Divider, LinearProgress } from "@mui/material";
+import PaginationComponent from "../PaginationComponent/PaginationComponent";
 import ListItemComponent from "../ListItemComponent/ListItemComponent";
 
 const Author = () => {
     const [allAuthor, setAllAuthor] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [pageNum, setPageNum] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
 
     useEffect(() => {
         setLoading(true);
-        fetch("http://api.quotable.io/authors")
+        fetch(
+            `https://api.quotable.io/authors?limit=4&skip=${(pageNum - 1) * 4}`
+        )
             .then((res) => res.json())
-            .then((data) => setAllAuthor(data.results))
+            .then((data) => {
+                setAllAuthor(data.results);
+                setTotalPages(data.totalPages);
+            })
             .finally(() => setLoading(false));
-    }, []);
+    }, [pageNum]);
 
     // console.log(allAuthor);
 
@@ -42,21 +43,35 @@ const Author = () => {
                     <LinearProgress />
                 </Box>
             ) : (
-                <Box sx={{ padding: 3 }}>
-                    <Grid
-                        container
-                        spacing={{ xs: 2, md: 3 }}
-                        columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                        {allAuthor.map((author) => (
-                            <Grid item xs={4} sm={4} md={6} key={author._id}>
-                                <ListItemComponent
-                                    author={author}
-                                ></ListItemComponent>
-                            </Grid>
-                        ))}
-                    </Grid>
-                </Box>
+                <>
+                    <Box sx={{ padding: 3 }}>
+                        <Grid
+                            container
+                            spacing={{ xs: 2, md: 3 }}
+                            columns={{ xs: 4, sm: 8, md: 12 }}
+                        >
+                            {allAuthor.map((author) => (
+                                <Grid
+                                    item
+                                    xs={4}
+                                    sm={4}
+                                    md={6}
+                                    key={author._id}
+                                >
+                                    <ListItemComponent
+                                        author={author}
+                                    ></ListItemComponent>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Box>
+                    {/* pagination */}
+                    <PaginationComponent
+                        pageNum={pageNum}
+                        setPageNum={setPageNum}
+                        totalPages={totalPages}
+                    ></PaginationComponent>
+                </>
             )}
         </>
     );
