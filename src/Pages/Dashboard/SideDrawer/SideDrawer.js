@@ -26,13 +26,14 @@ const SideDrawer = (props) => {
             <List>
                 {menuItems.map((item, index) => (
                     <Link
+                        key={index}
                         to={item.to}
                         style={{
                             textDecoration: "none",
                             color: "blue",
                         }}
                     >
-                        <ListItem button key={index}>
+                        <ListItem button>
                             <ListItemIcon style={{ color: "lightblue" }}>
                                 {item.icon}
                             </ListItemIcon>
