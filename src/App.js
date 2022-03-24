@@ -1,10 +1,15 @@
 import "./App.css";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Dashboard from "./Pages/Dashboard/Dashboard/Dashboard";
+import NotFound from "./Pages/NotFound/NotFound";
 function App() {
     return (
-        <div className="App">
-            <p>Hello Authors! You will be visible soon!!!</p>
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Dashboard></Dashboard>} />
+                <Route path="*" element={<NotFound></NotFound>} />
+            </Routes>
+        </Router>
     );
 }
 
