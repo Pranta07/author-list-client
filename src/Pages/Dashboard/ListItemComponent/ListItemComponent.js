@@ -16,7 +16,7 @@ const ListItemComponent = (props) => {
         >
             <Typography paragraph>
                 <span style={{ fontWeight: "bold", color: "blueviolet" }}>
-                    Author Name:{" "}
+                    Name:{" "}
                 </span>
                 <span style={{ fontWeight: 600 }}>{name}</span>
             </Typography>
@@ -30,13 +30,8 @@ const ListItemComponent = (props) => {
                 <span style={{ fontWeight: "bold", color: "blueviolet" }}>
                     Link:{" "}
                 </span>
-                <Link
-                    href={link}
-                    target="_blank"
-                    underline="hover"
-                    style={{ fontWeight: 400 }}
-                >
-                    {link}
+                <Link href={link} target="_blank" underline="hover">
+                    wiki/{name}
                 </Link>
             </Typography>
         </Box>

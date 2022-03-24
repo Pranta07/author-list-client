@@ -44,7 +44,15 @@ const Author = () => {
                 </Box>
             ) : (
                 <>
-                    <Box sx={{ padding: 3 }}>
+                    <Box
+                        sx={{
+                            padding: {
+                                xs: 1,
+                                sm: 2,
+                                md: 3,
+                            },
+                        }}
+                    >
                         <Grid
                             container
                             spacing={{ xs: 2, md: 3 }}
@@ -54,7 +62,7 @@ const Author = () => {
                                 <Grid
                                     item
                                     xs={4}
-                                    sm={4}
+                                    sm={8}
                                     md={6}
                                     key={author._id}
                                 >
