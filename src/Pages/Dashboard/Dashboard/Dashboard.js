@@ -34,6 +34,7 @@ const Dashboard = (props) => {
     return (
         <Box sx={{ display: "flex" }}>
             <CssBaseline />
+
             <AppBar
                 position="fixed"
                 sx={{
@@ -57,6 +58,8 @@ const Dashboard = (props) => {
                     </Typography>
                 </Toolbar>
             </AppBar>
+
+            {/* side menu */}
             <Box
                 component="nav"
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -94,6 +97,8 @@ const Dashboard = (props) => {
                     {drawer}
                 </Drawer>
             </Box>
+
+            {/* main body */}
             <Box
                 component="main"
                 sx={{
