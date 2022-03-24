@@ -1,4 +1,4 @@
-import { Logout, PeopleAlt } from "@mui/icons-material";
+import { Logout, PeopleAlt, Search } from "@mui/icons-material";
 import {
     Divider,
     List,
@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 const menuItems = [
     { title: "Author", to: "/author", icon: <PeopleAlt /> },
     { title: "Favourite Author", to: "/favorite", icon: <PeopleAlt /> },
-    { title: "Search Author", to: "search", icon: <PeopleAlt /> },
+    { title: "Search Author", to: "search", icon: <Search /> },
 ];
 
 const SideDrawer = (props) => {
@@ -43,13 +43,14 @@ const SideDrawer = (props) => {
             </List>
             <Divider />
             <List>
-                <ListItem button onClick={() => handleSignOut()}>
-                    <ListItemIcon
-                        style={{
-                            textDecoration: "none",
-                            color: "blue",
-                        }}
-                    >
+                <ListItem
+                    button
+                    style={{
+                        color: "black",
+                    }}
+                    onClick={() => handleSignOut()}
+                >
+                    <ListItemIcon>
                         <Logout></Logout>
                     </ListItemIcon>
                     <ListItemText>Logout</ListItemText>
