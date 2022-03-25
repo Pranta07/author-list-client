@@ -9,6 +9,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import SideDrawer from "../SideDrawer/SideDrawer";
 import { Outlet } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const drawerWidth = 240;
 
@@ -17,8 +18,7 @@ const Dashboard = (props) => {
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleSignOut = () => {
-        alert("Are you sure?");
-        //take action accourding to response
+        Swal.fire("Ooops!", "This feature is not developed yet!", "warning");
     };
 
     const handleDrawerToggle = () => {
