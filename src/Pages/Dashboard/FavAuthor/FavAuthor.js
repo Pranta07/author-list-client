@@ -1,4 +1,11 @@
-import { Box, Divider, Grid, LinearProgress, Typography } from "@mui/material";
+import {
+    Alert,
+    Box,
+    Divider,
+    Grid,
+    LinearProgress,
+    Typography,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ListItemComponent from "../ListItemComponent/ListItemComponent";
 
@@ -31,6 +38,9 @@ const FavAuthor = () => {
                 Your Favourite Authors
             </Typography>
             <Divider></Divider>
+            {!loading && favoriteAuthors.length === 0 && (
+                <Alert severity="info">No Favorite Authors to Display!</Alert>
+            )}
             {loading ? (
                 <Box sx={{ width: "100%" }}>
                     <LinearProgress />
