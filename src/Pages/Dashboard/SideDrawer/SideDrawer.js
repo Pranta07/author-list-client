@@ -30,11 +30,11 @@ const SideDrawer = (props) => {
                         to={item.to}
                         style={{
                             textDecoration: "none",
-                            color: "blue",
+                            color: "blueviolet",
                         }}
                     >
                         <ListItem button>
-                            <ListItemIcon style={{ color: "lightblue" }}>
+                            <ListItemIcon style={{ color: "blueviolet" }}>
                                 {item.icon}
                             </ListItemIcon>
                             <ListItemText primary={item.title} />
