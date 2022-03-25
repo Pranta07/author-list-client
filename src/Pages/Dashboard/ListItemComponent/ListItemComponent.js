@@ -86,7 +86,12 @@ const ListItemComponent = (props) => {
             {favorite ? (
                 <Button
                     color="secondary"
-                    style={{ position: "absolute", top: 0, right: 0 }}
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        right: 0,
+                        margin: 4,
+                    }}
                     onClick={() => addFavorite(_id)}
                 >
                     <Favorite></Favorite> Add Favorite
@@ -94,14 +99,22 @@ const ListItemComponent = (props) => {
             ) : (
                 <Button
                     color="secondary"
-                    style={{ position: "absolute", top: 0, right: 0 }}
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        right: 0,
+                        margin: 4,
+                    }}
                     onClick={() => removeFavorite(_id)}
                 >
                     <Remove></Remove> Remove Favorite
                 </Button>
             )}
 
-            <Typography paragraph sx={{ fontFamily: "monospace" }}>
+            <Typography
+                paragraph
+                sx={{ fontFamily: "monospace", marginTop: 2 }}
+            >
                 <span style={{ fontWeight: "bold", color: "blueviolet" }}>
                     Name:{" "}
                 </span>
