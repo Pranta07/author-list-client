@@ -35,7 +35,7 @@ const Author = () => {
                     fontFamily: "monospace",
                 }}
             >
-                List of All Author
+                List of Authors
             </Typography>
             <Divider></Divider>
 

@@ -9,6 +9,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<Dashboard />}>
+                    <Route path="/" element={<Author />}></Route>
                     <Route path="author" element={<Author />}></Route>
                     <Route path="favorite" element={<FavAuthor />}></Route>
                 </Route>

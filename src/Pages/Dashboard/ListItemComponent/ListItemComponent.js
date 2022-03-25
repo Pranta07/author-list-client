@@ -11,7 +11,7 @@ const ListItemComponent = (props) => {
 
         if (favoriteList) {
             const listItems = JSON.parse(favoriteList);
-            const authorId = listItems.find((id) => id === _id);
+            const authorId = listItems.find((author) => author._id === _id);
 
             if (authorId) setFavorite(false);
             else setFavorite(true);
@@ -29,7 +29,7 @@ const ListItemComponent = (props) => {
         if (favorite) items = JSON.parse(favorite);
         else items = [];
 
-        const newItems = [...items, id];
+        const newItems = [...items, props.author];
         // console.log(newItems);
 
         localStorage.setItem("favorite", JSON.stringify(newItems));
