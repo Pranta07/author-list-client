@@ -1,4 +1,4 @@
-import { Logout, PeopleAlt, Search } from "@mui/icons-material";
+import { Favorite, Logout, PeopleAlt, Search } from "@mui/icons-material";
 import {
     Divider,
     List,
@@ -11,9 +11,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const menuItems = [
-    { title: "Author", to: "/author", icon: <PeopleAlt /> },
-    { title: "Favourite Author", to: "/favorite", icon: <PeopleAlt /> },
-    { title: "Search Author", to: "search", icon: <Search /> },
+    { title: "Authors", to: "/author", icon: <PeopleAlt /> },
+    { title: "Favourite Authors", to: "/favorite", icon: <Favorite /> },
+    { title: "Search Authors", to: "/search", icon: <Search /> },
 ];
 
 const SideDrawer = (props) => {
