@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 
 const ListItemComponent = (props) => {
     const { name, bio, link, _id } = props.author;
+    const { remove, setRemove } = props;
+
     const [favorite, setFavorite] = useState(true);
 
     useEffect(() => {
@@ -38,6 +40,8 @@ const ListItemComponent = (props) => {
     const removeFavorite = (id) => {
         alert("This author has been removed from your Favorite list!", id);
         setFavorite(true);
+        setRemove(!remove);
+
         //remove the author id from local storage
         const favorite = localStorage.getItem("favorite");
 

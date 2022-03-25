@@ -8,6 +8,7 @@ const Author = () => {
     const [loading, setLoading] = useState(true);
     const [pageNum, setPageNum] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const [remove, setRemove] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -69,6 +70,8 @@ const Author = () => {
                                 >
                                     <ListItemComponent
                                         author={author}
+                                        remove={remove}
+                                        setRemove={setRemove}
                                     ></ListItemComponent>
                                 </Grid>
                             ))}

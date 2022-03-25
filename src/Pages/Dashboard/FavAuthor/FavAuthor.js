@@ -5,6 +5,7 @@ import ListItemComponent from "../ListItemComponent/ListItemComponent";
 const FavAuthor = () => {
     const [favoriteAuthors, setFavoriteAuthors] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [remove, setRemove] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -14,7 +15,7 @@ const FavAuthor = () => {
             setFavoriteAuthors(authors);
         }
         setLoading(false);
-    }, []);
+    }, [remove]);
 
     return (
         <>
@@ -53,6 +54,8 @@ const FavAuthor = () => {
                             <Grid item xs={4} sm={8} md={6} key={author._id}>
                                 <ListItemComponent
                                     author={author}
+                                    remove={remove}
+                                    setRemove={setRemove}
                                 ></ListItemComponent>
                             </Grid>
                         ))}
