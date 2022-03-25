@@ -50,7 +50,7 @@ const FavAuthor = () => {
                         columns={{ xs: 4, sm: 8, md: 12 }}
                     >
                         {favoriteAuthors.map((author) => (
-                            <Grid item xs={4} sm={8} md={6} key={author}>
+                            <Grid item xs={4} sm={8} md={6} key={author._id}>
                                 <ListItemComponent
                                     author={author}
                                 ></ListItemComponent>

@@ -32,13 +32,23 @@ const ListItemComponent = (props) => {
         const newItems = [...items, props.author];
         // console.log(newItems);
 
-        localStorage.setItem("favorite", JSON.stringify(newItems));
+        localStorage.setItem("favorite", JSON.stringify([...newItems]));
     };
 
     const removeFavorite = (id) => {
         alert("This author has been removed from your Favorite list!", id);
         setFavorite(true);
         //remove the author id from local storage
+        const favorite = localStorage.getItem("favorite");
+
+        let items;
+        if (favorite) items = JSON.parse(favorite);
+        else items = [];
+
+        const newItems = items.filter((author) => author._id !== id);
+        // console.log(newItems);
+
+        localStorage.setItem("favorite", JSON.stringify([...newItems]));
     };
 
     return (
