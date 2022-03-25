@@ -1,6 +1,7 @@
 import { Favorite, Remove } from "@mui/icons-material";
 import { Box, Button, Link, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 const ListItemComponent = (props) => {
     const { name, bio, link, _id } = props.author;
@@ -21,7 +22,11 @@ const ListItemComponent = (props) => {
     }, [_id]);
 
     const addFavorite = (id) => {
-        alert("This author has been added to your Favorite list!", id);
+        Swal.fire(
+            "Great!",
+            `${name} has been added to your Favorite list!`,
+            "success"
+        );
         setFavorite(false);
 
         //save the author id to local storage
@@ -38,21 +43,33 @@ const ListItemComponent = (props) => {
     };
 
     const removeFavorite = (id) => {
-        alert("This author has been removed from your Favorite list!", id);
-        setFavorite(true);
-        setRemove(!remove);
+        Swal.fire({
+            title: "Are you sure?",
+            text: `${name} will be removed from your Favorite list!`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, remove it!",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire("Great!", "Removed Successfully!", "success");
+                setFavorite(true);
+                setRemove(!remove);
 
-        //remove the author id from local storage
-        const favorite = localStorage.getItem("favorite");
+                //remove the author id from local storage
+                const favorite = localStorage.getItem("favorite");
 
-        let items;
-        if (favorite) items = JSON.parse(favorite);
-        else items = [];
+                let items;
+                if (favorite) items = JSON.parse(favorite);
+                else items = [];
 
-        const newItems = items.filter((author) => author._id !== id);
-        // console.log(newItems);
+                const newItems = items.filter((author) => author._id !== id);
+                // console.log(newItems);
 
-        localStorage.setItem("favorite", JSON.stringify([...newItems]));
+                localStorage.setItem("favorite", JSON.stringify([...newItems]));
+            }
+        });
     };
 
     return (
